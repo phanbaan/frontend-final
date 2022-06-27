@@ -1,0 +1,110 @@
+.popup-edit {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-54%, -50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  background-image: linear-gradient(to top, #48c6ef 0%, #6f86d6 100%);
+  max-width: 74rem;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  z-index: 999;
+}
+
+.popup-edit__content {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-around;
+  padding: 100px 50px;
+  box-sizing: border-box;
+  &.signup__right{
+    padding: 0;
+  }
+}
+
+
+.popup-edit .input-field>input {
+  padding: 1rem;
+  font-size: 16px;
+  width: 100%;
+  display: block;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: transparent;
+
+  & .input-group::placeholder {
+    color: #fff;
+  }
+}
+
+.popup-edit .input-field.input input::placeholder {
+  color: #fff;
+}
+
+.popup-edit .input-field.input input[type="date"] {
+  color: #fff;
+}
+
+
+.input-feedback {
+  color: red;
+  margin-top: .25rem;
+}
+
+.popup-edit .input-field.input {
+  border: none !important;
+  padding: 0 !important;
+  color: #fff !important;
+  flex: 1 !important;
+}
+
+.popup-edit .input-field>button {
+  max-width: 150px;
+  margin: 20px 0;
+  padding: 12px 20px;
+  border-style: none;
+  border-radius: 5px;
+  background-color: #08c;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
+  font-size: 17px;
+  font-weight: 500;
+  color: #fff;
+  cursor: pointer;
+  outline: none;
+  -webkit-appearance: none;
+}
+
+
+
+.popup-edit .input-group.input-group-avatar,
+.input-group.input-group-birthday {
+  & label {
+    flex: 1 !important;
+    line-height: auto !important;
+    background-color: transparent !important;
+    border: 1px solid #ccc;
+    color: #fff;
+    font-weight: 300;
+  }
+}
+
+#birthday,
+#avatar {
+  margin-bottom: 0;
+  background-color: transparent;
+}
+.popup-edit .popup-title{
+  padding: 0;
+  font-size: 2rem;
+  color: #fff;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  padding: 2rem;
+  text-align: center;
+}
+.popup-edit .signup__right .form .input-group {
+  color: #fff !important;
+}

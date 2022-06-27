@@ -1,0 +1,40 @@
+.add {
+  &-form {
+    display: flex;
+    width: 100%;
+    background-color: #F3F2F1;
+    align-items: center;
+    border-radius: 5px;
+    padding: 1rem;
+    gap: 1rem;
+
+    .add-icon {
+      font-size: 2.5rem;
+      color: #0078D7;
+      opacity: 0.7;
+    }
+
+    input {
+      padding: 1.4rem .5rem;
+      width: 100%;
+      outline: none;
+      border: none;
+      background-color: transparent;
+      transition: all ease 0.3s;
+
+      &::placeholder {
+        color: #0078D7;
+      }
+
+      &:focus {
+        border-radius: 4px 4px 0 0;
+        border-bottom: 1px solid #0078D7;
+        background-color: #fff;
+
+        &::placeholder {
+          color: #797775;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,20 @@
+.list {
+  display: flex;
+  background-color: #fff;
+  justify-content: space-between;
+  align-items: center;
+
+  &__content {
+    align-self: flex-start;
+    padding: 1.5rem;
+    flex: 5;
+  }
+
+  &__widget {
+    flex: 2;
+    padding: 1.5rem;
+    box-sizing: border-box;
+    align-self: flex-start;
+    background-color: #F3F2F1;
+  }
+}

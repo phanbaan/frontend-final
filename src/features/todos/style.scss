@@ -1,0 +1,21 @@
+.dashboard {
+  &__content {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+
+    .sidebar {
+      flex: 1;
+      background-color: #F3F2F1;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      position: sticky;
+    }
+
+    .content {
+      flex: 4;
+      background: #fff;
+    }
+  }
+}

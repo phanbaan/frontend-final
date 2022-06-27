@@ -1,24 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import {
+  Route, Routes, useNavigate
+} from "react-router-dom";
+import Login from "./features/auth/pages/login";
+import Register from "./features/auth/pages/register";
 
+import Todos from "./features/todos";
+import Completed from "./features/todos/pages/completed";
+import Edit from "./features/todos/pages/edit";
+import Important from "./features/todos/pages/important";
+import Today from "./features/todos/pages/today";
+
+import { isLogginSelector } from "./redux/selectors";
 function App() {
+
+  const navigate = useNavigate();
+  const isLoggin = useSelector(isLogginSelector);
+
+   useEffect(() => {
+    if(isLoggin){
+      navigate("/todos")
+    }else {
+      navigate("/")
+    }
+   }, [isLoggin])
+   
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+  <Routes>
+    <Route path="/" element={<Login />} />
+    <Route path='signup' element={<Register />} />
+    <Route path="todos" element={<Todos />}>
+      <Route index element={<Today />} />
+      <Route path='today' element={<Today />} />
+      <Route path='important' element={<Important />} />
+      <Route path='completed' element={<Completed />} /> 
+      <Route path="Id">
+        <Route  index element={<Edit />} />
+        <Route  path=":Id" element={<Edit />} />
+      </Route>
+    </Route>
+  </Routes>
   );
 }
 
