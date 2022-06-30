@@ -19,11 +19,10 @@ const Register = () => {
   const validationSchema = Yup.object().shape({
     email: Yup.string().email("Kiểu email").required("Email phải bắt buộc"),
     name: Yup.string().required("Họ tên phải bắt buộc"),
-    password: Yup.string()
-      .required("Mật khẩu phải bắt buộc")
-      .matches(/^[a-z]+$/, "Mật khẩu phải có 1 chữ thường")
-      .matches(/^[A-Z]+$/, "Mật khẩu phải có 1 chữ hoa")
-      .matches(/^\d+$/, "Mật khẩu phải có 1 chữ số"),
+    password: Yup.string().required("Mật khẩu phải bắt buộc"),
+    // .matches(/^[a-z]+$/, "Mật khẩu phải có 1 chữ thường")
+    // .matches(/^[A-Z]+$/, "Mật khẩu phải có 1 chữ hoa")
+    // .matches(/^\d+$/, "Mật khẩu phải có 1 chữ số"),
   });
   const handleSubmitForm = async (values, actions) => {
     await dispath(register(values));

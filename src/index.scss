@@ -1,3 +1,4 @@
+@import "./assets/css/mixin.scss";
 
 *{
   margin: 0;
@@ -6,6 +7,12 @@
 }
 html {
   font-size: 62.5%;
+  @include tablet {
+    font-size: 56.25%;
+  }
+  @include mobile {
+    font-size: 50%;
+  }
 }
 body {
   font-family: 'Poppins', sans-serif;

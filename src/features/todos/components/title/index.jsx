@@ -6,16 +6,19 @@ import {
   IoCalendarNumberOutline,
   IoCalendarOutline,
   IoStarOutline,
+  IoMenuOutline,
 } from "react-icons/io5";
 import { MdOutlineMultipleStop } from "react-icons/md";
 import { useDispatch } from "react-redux";
 import {
+  todoIsSidebar,
   todoSortByName,
   todoSortByPriority,
   todoSortByTime,
 } from "../../todoSlice";
 import "./style.scss";
 import {
+  isSidebarSelector,
   todoSelector,
   todoSortByNameSelector,
   todoSortByPrioritySelector,
@@ -28,6 +31,7 @@ const Title = ({ title, color, filter, date }) => {
   const isByTime = useSelector(todoSortByTimeSelector);
   const isByPriority = useSelector(todoSortByPrioritySelector);
   const todos = useSelector(todoSelector);
+  const isSidebar = useSelector(isSidebarSelector);
   const dispath = useDispatch();
 
   function handleToggle() {
@@ -67,9 +71,17 @@ const Title = ({ title, color, filter, date }) => {
     }
     setIsToggle(!isToggle);
   }
+  function handleIsSidebar() {
+    dispath(todoIsSidebar(!isSidebar));
+  }
   return (
     <div className="title">
       <div className="left">
+        {!isSidebar && (
+          <div className="left-menu" onClick={handleIsSidebar}>
+            <IoMenuOutline className="icon-header" />
+          </div>
+        )}
         <h3 className="text" style={{ color: color }}>
           {title}
         </h3>

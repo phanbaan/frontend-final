@@ -35,7 +35,6 @@ const Widget = () => {
         todo.id = id;
         todo.userId = userId;
         dispath(removeTodo(todo));
-        // dispath(decrementCouter());
       }
     }
   }

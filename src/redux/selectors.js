@@ -11,7 +11,7 @@ export const todoSortByPrioritySelector = state=> state.todos.sortByPriority;
 export const couterSelector = state =>state.todos.couter;
 export const couterPrioritySelector = state =>state.todos.couterPriority;
 export const couterCompletedSelector = state =>state.todos.couterCompleted;
-
+export const isSidebarSelector = state =>state.todos.isSidebar;
 const searchTextSelector = state =>state.todos.searchText;
 const todoPrioritySelector = state =>state.todos.todoPriority;
 const todoCompletedSelector = state =>state.todos.todoCompleted;

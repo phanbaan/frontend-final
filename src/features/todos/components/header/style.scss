@@ -1,3 +1,5 @@
+@import "../../../../assets/css/mixin.scss";
+
 .header {
   width: 100%;
   display: flex;
@@ -44,7 +46,12 @@
       gap: 1.6rem;
       min-width: 40rem;
       transition: all ease-in-out .5s;
-
+      @include tablet {
+        min-width: 30rem
+      }
+      @include mobile {
+        min-width: auto
+      }
       &:hover {
         background-color: #fff;
 
@@ -78,6 +85,9 @@
       flex-direction: row;
       align-items: center;
       gap: 1rem;
+      @include mobile {
+        gap: 0;
+      }
 
       &__item {
         color: #fff;
@@ -86,6 +96,9 @@
         display: inline-block;
         padding: 0 1rem;
         position: relative;
+        @include mobile {
+          padding: 0 .5rem;
+        }
 
         &:last-child {
           .info {

@@ -24,7 +24,9 @@
   }
 }
 
-
+.popup-edit .text-input.input-group{
+  margin-bottom: 0 !important;
+}
 .popup-edit .input-field>input {
   padding: 1rem;
   font-size: 16px;
@@ -107,4 +109,18 @@
 }
 .popup-edit .signup__right .form .input-group {
   color: #fff !important;
+}
+.popup-label {
+  color: #1c1c1e;
+  font-weight: 400;
+  flex: 1 !important;
+  line-height: inherit;
+  padding: 0rem 2rem !important;
+  font-size: 1.3rem;
+}
+.popup-edit .signup__right .form .input-group .input {
+  flex: 1;
+}
+.popup-edit .input-group .group-error {
+  width: 100%;
 }

@@ -1,3 +1,5 @@
+@import "../../../../assets/css/mixin.scss";
+
 .container {
   width: 100%;
   min-height: 100vh;
@@ -10,7 +12,7 @@
 
 .signup {
   min-width: 90rem;
-  height: 80vh;
+  min-height: 80vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -19,12 +21,23 @@
   border-radius: 5px;
   position: relative;
   gap: 3rem;
-
+  @include tablet {
+    width: 100%;
+    height: 100vh;
+  }
+  @include mobile {
+    width: 75%;
+    min-width: 20rem;
+    padding: 5rem 0;
+    height: auto;
+  }
   &__left {
     flex: 1;
     position: relative;
     height: 100%;
-
+    @include mobile {
+        display: none;
+    }
     &::before {
       position: absolute;
       content: ""

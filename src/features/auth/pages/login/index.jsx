@@ -9,6 +9,7 @@ import "./style.scss";
 import { login } from "../../../../redux/authSlice";
 import { useNavigate } from "react-router-dom";
 import { isLogginSelector } from "../../../../redux/selectors";
+
 const Login = () => {
   const dispath = useDispatch();
   const navigate = useNavigate();
@@ -87,7 +88,7 @@ const Login = () => {
                         <input
                           type="submit"
                           className="input btn"
-                          value="Submit"
+                          value="Đăng nhập"
                         />
                       </div>
                       <div className="input-group">

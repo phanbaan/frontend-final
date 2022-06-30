@@ -1,3 +1,5 @@
+@import "../../../../assets/css/mixin.scss";
+
 .list {
   display: flex;
   background-color: #fff;
@@ -16,5 +18,10 @@
     box-sizing: border-box;
     align-self: flex-start;
     background-color: #F3F2F1;
+    @include mobile {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
   }
 }

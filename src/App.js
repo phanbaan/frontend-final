@@ -1,8 +1,11 @@
+import {
+  Routes,
+  Route,
+  useNavigate
+} from "react-router-dom";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import {
-  Route, Routes, useNavigate
-} from "react-router-dom";
+
 import Login from "./features/auth/pages/login";
 import Register from "./features/auth/pages/register";
 
@@ -11,7 +14,7 @@ import Completed from "./features/todos/pages/completed";
 import Edit from "./features/todos/pages/edit";
 import Important from "./features/todos/pages/important";
 import Today from "./features/todos/pages/today";
-
+import "./App.scss"
 import { isLogginSelector } from "./redux/selectors";
 function App() {
 

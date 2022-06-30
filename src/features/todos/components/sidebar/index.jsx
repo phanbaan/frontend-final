@@ -17,14 +17,16 @@ import {
   couterCompletedSelector,
   couterPrioritySelector,
   couterSelector,
+  isSidebarSelector,
 } from "../../../../redux/selectors";
-import { todoCompleted, todoPriority } from "../../todoSlice";
+import { todoCompleted, todoIsSidebar, todoPriority } from "../../todoSlice";
 import "./style.scss";
 
 const Sidebar = () => {
   const couter = useSelector(couterSelector);
   const couterPriority = useSelector(couterPrioritySelector);
   const couterCompleted = useSelector(couterCompletedSelector);
+  const isSidebar = useSelector(isSidebarSelector);
   const dispath = useDispatch();
   function handleToday() {
     dispath(todoPriority(false));
@@ -39,9 +41,12 @@ const Sidebar = () => {
     dispath(todoPriority(false));
     dispath(todoCompleted(true));
   }
+  function handleIsSidebar() {
+    dispath(todoIsSidebar(!isSidebar));
+  }
   return (
     <div className="sidebar__wrapper">
-      <div className="sidebar__header">
+      <div className="sidebar__header" onClick={handleIsSidebar}>
         <IoMenuOutline className="icon-header" />
       </div>
       <div className="sidebar__content">

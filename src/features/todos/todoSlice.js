@@ -15,6 +15,7 @@ const todoSlice = createSlice({
     couterCompleted: 0,
     todoPriority: false,
     todoCompleted:false,
+    isSidebar:true
   },
   reducers:{
     todoEdit: (state,action)=>{ 
@@ -42,6 +43,9 @@ const todoSlice = createSlice({
     },
     todoCompleted:(state,action)=>{
       state.todoCompleted = action.payload
+    },
+    todoIsSidebar:(state,action)=>{
+      state.isSidebar = action.payload
     }
   },
   extraReducers:(builder)=>{
@@ -55,6 +59,7 @@ const todoSlice = createSlice({
     })
     .addCase(createTodo.fulfilled,(state,action)=>{
       state.todo.unshift(action.payload);
+       state.couter =  state.todo.length;
     })
     .addCase(updateTodo.fulfilled,(state,action)=>{ 
 
@@ -81,8 +86,11 @@ const todoSlice = createSlice({
       state.couterCompleted = state.todo.filter(t=>t.completed === true).length;
     })
     .addCase(removeTodo.fulfilled,(state,action)=>{
-        let todos= state.todo.filter(t=>t.id !== action.payload.id);
-        state.todo = todos;
+      state.todo= action.payload;
+      state.couter =  action.payload.length;
+      state.couterPriority = state.todo.filter(t=>t.priority === true).length;   
+      state.couterCompleted = state.todo.filter(t=>t.completed === true).length;
+        
     })
   }
 })
@@ -112,9 +120,8 @@ export const updateCompleted = createAsyncThunk("todos/updateCompleted", async(t
 })
 export const removeTodo = createAsyncThunk("todo/remove",async (todo)=>{;
   try {
-    console.log("log todo",todo);
      const res = await todoApi.removeTodo(todo);
-     
+     return res.todo;
   } catch (error) {
     console.log("Lỗi tại remove", error.response);
   }
@@ -123,5 +130,5 @@ export const removeTodo = createAsyncThunk("todo/remove",async (todo)=>{;
 })
 
 const {reducer,actions}= todoSlice;
-export const {todoEdit,todoSearch ,todoSortByTime,todoSortByName,todoPriority,todoCompleted,todoSortByPriority} = actions;
+export const {todoEdit,todoSearch ,todoSortByTime,todoSortByName,todoPriority,todoCompleted,todoSortByPriority,todoIsSidebar} = actions;
 export default reducer;

@@ -49,7 +49,7 @@ const Header = () => {
     <div className="header">
       {isPopup && <Popup />}
       <div className="header__left">
-        <Link to="/" className="logo">
+        <Link to="/todos" className="logo">
           <MdDashboard className="logo__icon" />
           <span className="logo__text">Logo</span>
         </Link>
